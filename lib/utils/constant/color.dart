@@ -90,8 +90,10 @@ class Primitives {
   static const grape10 = Color(0xFF862E9C);
 
   // White and Black
-  static const white = Color(0xFFFFFFFF);
+  static const white = Colors.white;
   static const black = Color(0xFF111111);
+
+  static const Color bluePrimary = Color(0xFF6C63FF);
 }
 
 Color colorFromString(String colorString) {
