@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/views/login/login.dart';
+import 'package:my_app/views/login/view/login_user_view.dart';
 import '../custom/app_bar.dart';
 import 'profile/profile_settings_view.dart';
 
@@ -36,12 +37,12 @@ class HomeView extends StatelessWidget {
                   ),
                   _buildFeatureCard(
                     context,
-                    'Quick Actions',
+                    'Login',
                     Icons.flash_on,
                     Theme.of(context).colorScheme.secondary,
                     onTap: () => Navigator.push(
                       context,
-                       MaterialPageRoute(builder: (context) => LoginPage())),
+                       MaterialPageRoute(builder: (context) => LoginUserView())),
                   ),
                 ],
               ),

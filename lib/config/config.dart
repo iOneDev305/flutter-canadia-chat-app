@@ -1,6 +1,6 @@
 class Config {
-  // static String baseUrl ='http://localhost:8080';
-  static String baseUrl ='https://uat-zulip.canadiabank.com:9999/';
+  static String baseUrl ='http://localhost:8080';
+  // static String baseUrl ='https://uat-zulip.canadiabank.com:9999/';
   static String apiKey ='WCexPQK8etFGDRVY8ZX54pFZ2eNAbu5mCJX79Qttg63Bh2c5ZQpytVOP2YGbIcCZ';
   static String apiHeader = 'X-API-KEY';
 

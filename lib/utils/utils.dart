@@ -1,6 +1,5 @@
 import 'constant/enum_type.dart';
 
-
 String getIconUrl({required String path, required ImageType type}) {
   switch (type) {
     case ImageType.svg:
