@@ -24,37 +24,35 @@ class LoginUserController extends GetxController {
     usernameController.addListener(() => {});
 
     passwordController.addListener(() => {});
+  }
+  // Create the function to login
+  Future<void> login() async {
+    if (usernameController.text.isEmpty || passwordController.text.isEmpty) {
+      errorMessage.value = 'Please enter both username and password.';
+      return;
+    }
+    isLoading.value = true;
+    errorMessage.value = '';
 
-    // Create the function to login
-    Future<void> login() async {
-      if (usernameController.text.isEmpty || passwordController.text.isEmpty) {
-        errorMessage.value = 'Please enter both username and password.';
-        return;
+    final pragms = {
+      'username': usernameController.text,
+      'password': passwordController.text
+    };
+
+    try {
+      final response = await _apiManager.postUserLogin(pragms);
+
+      if(response != null && response.code == ApiErrors.ok) {
+        final token = response.data?['token']?.toString();
+
+
+      }else {
+        errorMessage.value = 'UID not found in login response.';
       }
-      isLoading.value = true;
-      errorMessage.value = '';
-
-      final pragms = {
-        'username': usernameController.text,
-        'password': passwordController.text
-      };
-
-      try {
-        final response = await _apiManager.postUserLogin(pragms);
-
-        if(response != null && response.code == ApiErrors.ok) {
-          final token = response.data?['token']?.toString();
-          
-
-        }else {
-          errorMessage.value = 'UID not found in login response.';
-        }
-      } catch(e) {
-           errorMessage.value = 'Network error: ${e}';
-      }
+    } catch(e) {
+      errorMessage.value = 'Network error: ${e}';
     }
   }
-
   @override
   void onClose() {
     usernameController.dispose();
